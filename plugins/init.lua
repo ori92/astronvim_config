@@ -194,36 +194,31 @@ return {
   ["machakann/vim-sandwich"] = {}, -- vim-sandwitch - surronding.
   ["AndrewRadev/sideways.vim"] = {}, -- sideways - shift parameters.
   ["mhinz/vim-startify"] = {}, -- Startify.
-
+  ["sudormrfbin/cheatsheet.nvim"] = {}, -- Cheatsheet
   ["s1n7ax/nvim-window-picker"] = { -- Window Picker
     tag = "v1.*",
     config = function()
       require("window-picker").setup()
     end,
   },
-  ["sudormrfbin/cheatsheet.nvim"] = {
-    { "nvim-telescope/telescope.nvim" },
-    { "nvim-lua/popup.nvim" },
-    { "nvim-lua/plenary.nvim" },
-    ["terrortylor/nvim-comment"] = {
-      config = require("nvim_comment").setup(),
-    },
-    ["lambdalisue/suda.vim"] = { -- Suda
-      config = vim.api.nvim_set_var("suda_smart_edit", 1),
-    },
-    ["ethanholz/nvim-lastplace"] = { -- Remembers last place you edited.      event = "BufRead",
-      config = function()
-        require("nvim-lastplace").setup {
-          lastplace_ignore_buftype = { "quickfix", "nofile", "help" },
-          lastplace_ignore_filetype = {
-            "gitcommit",
-            "gitrebase",
-            "svn",
-            "hgcommit",
-          },
-          lastplace_open_folds = true,
-        }
-      end,
-    },
+  ["terrortylor/nvim-comment"] = {
+    config = require("nvim_comment").setup(),
+  },
+  ["lambdalisue/suda.vim"] = { -- Suda
+    config = vim.api.nvim_set_var("suda_smart_edit", 1),
+  },
+  ["ethanholz/nvim-lastplace"] = { -- Remembers last place you edited.      event = "BufRead",
+    config = function()
+      require("nvim-lastplace").setup {
+        lastplace_ignore_buftype = { "quickfix", "nofile", "help" },
+        lastplace_ignore_filetype = {
+          "gitcommit",
+          "gitrebase",
+          "svn",
+          "hgcommit",
+        },
+        lastplace_open_folds = true,
+      }
+    end,
   },
 }
