@@ -1,4 +1,3 @@
-local dc = require "nvim-dracula.colors"
 local dp = require "darkplus.palette"
 local cp = require("catppuccin.api.colors").get_colors() -- fetch colors with API
 local cmd = vim.api.nvim_create_autocmd
@@ -6,15 +5,6 @@ local hi = function(groups, colors)
   vim.api.nvim_set_hl(0, groups, colors)
 end
 local custom_highlights = {
-  dracula = {
-    HighlightUrl = { fg = "none", underline = true, italic = true, bg = "none" },
-    NeoTreeNormal = { bg = dc.bg },
-    NeoTreeNormalNC = { bg = dc.bg },
-    StatusLine = { link = "Normal" },
-    BufferLineTab = { bg = dc.selection, fg = dc.selection },
-    BufferLineTabSelected = { bg = dc.selection, fg = dc.selection },
-    DapUIFloatBorder = { bg = dc.none, fg = dc.fg },
-  },
   darkplus = {
     rainbowcol1 = { fg = dp.purple },
     rainbowcol2 = { fg = dp.yellow },
