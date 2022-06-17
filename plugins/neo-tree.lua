@@ -4,13 +4,21 @@ return {
   enable_git_status = true,
   filesystem = {
     filtered_items = {
-      hide_dotfiles = false,
-      visible = true,
+      hide_dotfiles = true,
+      hide_by_pattern = {},
+      hide_by_name = {},
+      never_show = {
+        ".DS_Store",
+        "thumbs.db",
+        "node_modules",
+        ".git",
+        ".cache",
+      },
     },
   },
   window = {
-    mapping = {
-      ["q"] = "<Cmd>Neotree toggle",
-    },
+    mapping = {},
+    position = "right",
+    width = 30,
   },
 }
