@@ -61,6 +61,8 @@ local mappings = {
     -- Alt + Left/Right to move between tabs.
     ["<M-Right>"] = "<Cmd>BufferLineCycleNext<CR>",
     ["<M-Left>"] = "<Cmd>BufferLineCyclePrev<CR>",
+    -- Toggle Neotree
+    ["\\"] = "<Cmd>Neotree toggle<CR>",
   },
   v = {
     ["<A-j>"] = ":m '>+1<cr>gv=gv",

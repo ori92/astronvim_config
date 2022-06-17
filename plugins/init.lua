@@ -54,7 +54,6 @@ return {
   ["cljoly/telescope-repo.nvim"] = {
     module = "telescope._extensions.repo",
   },
-  ["datamonsterr/nvim-dracula"] = {},
   ["aserowy/tmux.nvim"] = {
     module = "tmux",
   },
@@ -89,7 +88,12 @@ return {
   ["jvgrootveld/telescope-zoxide"] = {
     module = "telescope._extensions.zoxide",
   },
-  ["goolord/alpha-nvim"] = { disable = true },
+  ["goolord/alpha-nvim"] = {
+    requires = { "kyazdani42/nvim-web-devicons" },
+    config = function()
+      require("alpha").setup(require("alpha.themes.startify").config)
+    end,
+  },
   ["nvim-neorg/neorg"] = {
     ft = "norg",
     after = "nvim-treesitter",
@@ -193,7 +197,7 @@ return {
   ["mg979/vim-visual-multi"] = {}, -- visual-multi cursor
   ["machakann/vim-sandwich"] = {}, -- vim-sandwitch - surronding.
   ["AndrewRadev/sideways.vim"] = {}, -- sideways - shift parameters.
-  ["mhinz/vim-startify"] = {}, -- Startify.
+  -- ["mhinz/vim-startify"] = {}, -- Startify.
   ["sudormrfbin/cheatsheet.nvim"] = {}, -- Cheatsheet
   ["s1n7ax/nvim-window-picker"] = { -- Window Picker
     tag = "v1.*",
