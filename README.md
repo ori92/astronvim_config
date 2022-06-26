@@ -14,5 +14,5 @@ Install my config, use:
 ```bash
   git clone https://github.com/datamonsterr/astrovim_config ~/.config/astronvim/lua/user
   nvim --headless +PackerSync -c quitall
-
+  
 ```
