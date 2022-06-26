@@ -24,10 +24,10 @@ local unmappings = {
 local mappings = {
   n = {
 
-    ["<A-k>"] = { "<cmd>m .-2<CR>", {
+    ["<C-k>"] = { "<cmd>m .-2<CR>", {
       desc = "move line up",
     } },
-    ["<A-j>"] = { "<cmd>m .+1<CR>", {
+    ["<C-j>"] = { "<cmd>m .+1<CR>", {
       desc = "move line down",
     } },
     ["n"] = "nzzzv",
@@ -63,15 +63,17 @@ local mappings = {
     ["<M-Left>"] = "<Cmd>BufferLineCyclePrev<CR>",
     -- Toggle Neotree
     ["\\"] = "<Cmd>Neotree toggle<CR>",
+    ["-"] = "<c-x>", -- "Descrement number"
+    ["+"] = "<c-a>", -- "Increment number"
   },
   v = {
-    ["<A-j>"] = ":m '>+1<cr>gv=gv",
-    ["<A-k>"] = ":m '<-2<cr>gv=gv",
+    ["<C-j>"] = ":m '>+1<cr>gv=gv",
+    ["<C-k>"] = ":m '<-2<cr>gv=gv",
+    -- Move lines Up/Down using Alt+Arrows
+    ["<C-Up>"] = ":m '<-2<CR>gv=gv",
+    ["<C-Down>"] = ":m '>+1<CR>gv=gv",
     -- Ctrl-s for saving
     ["<C-S>"] = "<Esc>:write<CR>",
-    -- Move lines Up/Down using Alt+Arrows
-    ["<m-Up>"] = ":m '<-2<CR>gv=gv",
-    ["<m-Down>"] = ":m '>+1<CR>gv=gv",
     -- Typing gcc is too much (comments toggle)
     ["<C-c>"] = ":CommentToggle<CR>gv",
   },

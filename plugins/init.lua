@@ -199,6 +199,7 @@ return {
   ["AndrewRadev/sideways.vim"] = {}, -- sideways - shift parameters.
   -- ["mhinz/vim-startify"] = {}, -- Startify.
   ["sudormrfbin/cheatsheet.nvim"] = {}, -- Cheatsheet
+  ["RRethy/nvim-align"] = {},
   ["s1n7ax/nvim-window-picker"] = { -- Window Picker
     tag = "v1.*",
     config = function()
