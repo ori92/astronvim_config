@@ -46,34 +46,55 @@ local mappings = {
     -- Move to beginning/end of line while in normal mode
     ["<C-a>"] = "^",
     ["<C-e>"] = "$",
+
     -- Move word to next/prev word
     ["<C-Right>"] = "w",
     ["<C-Left>"] = "b",
+
     -- C-z for undo
     ["<C-z>"] = "<Cmd>undo<CR>",
+
     -- Ctrl-s for saving
     ["<C-S>"] = ":write<CR>",
+
     -- Move lines Up/Down using Alt+Arrows
     ["<m-Up>"] = ":m .-2<CR>==",
     ["<m-Down>"] = ":m .+1<CR>==",
+
     -- Typing gcc is too much (comments toggle)
     ["<C-c>"] = "<Cmd>CommentToggle<CR>",
+
     -- Alt + Left/Right to move between tabs.
     ["<M-Right>"] = "<Cmd>BufferLineCycleNext<CR>",
     ["<M-Left>"] = "<Cmd>BufferLineCyclePrev<CR>",
+
     -- Toggle Neotree
     ["\\"] = "<Cmd>Neotree toggle<CR>",
+
     ["-"] = "<c-x>", -- "Descrement number"
     ["+"] = "<c-a>", -- "Increment number"
+
+    -- Duplicate a line / selection and comment out the first
+    ["<Leader>C"] = { "Ypk:CommentToggle<CR>j", { desc = "Duplicate comment" } },
+    -- Insert current date
+    ["<Leader>i"] = { '"=strftime("%b %d, %Y")<CR>p', { desc = "insert date " } },
+
+    ["<Leader><Up>"] = { "<cmd>lua require('tmux').move_top()<cr>", { desc = "which_key_ignore" } },
+    ["<Leader><Down>"] = { "<cmd>lua require('tmux').move_bottom()<cr>", { desc = "which_key_ignore" } },
+    ["<Leader><Left>"] = { "<cmd>lua require('tmux').move_left()<cr>", { desc = "which_key_ignore" } },
+    ["<Leader><Right>"] = { "<cmd>lua require('tmux').move_right()<cr>", { desc = "which_key_ignore" } },
   },
   v = {
     ["<C-j>"] = ":m '>+1<cr>gv=gv",
     ["<C-k>"] = ":m '<-2<cr>gv=gv",
+
     -- Move lines Up/Down using Alt+Arrows
     ["<C-Up>"] = ":m '<-2<CR>gv=gv",
     ["<C-Down>"] = ":m '>+1<CR>gv=gv",
+
     -- Ctrl-s for saving
     ["<C-S>"] = "<Esc>:write<CR>",
+
     -- Typing gcc is too much (comments toggle)
     ["<C-c>"] = ":CommentToggle<CR>gv",
   },
@@ -82,21 +103,27 @@ local mappings = {
     ["."] = ".<c-g>u",
     ["!"] = "!<c-g>u",
     ["?"] = "?<c-g>u",
+
     -- Move to beginning/end of line while in insert mode
     ["<C-a>"] = "<C-o>0",
     ["<C-e>"] = "<C-o>$",
+
     -- Move Cursor in insert mode
     ["<C-l>"] = "<Right>",
     ["<C-h>"] = "<Left>",
     ["<C-k>"] = "<Up>",
     ["<C-j>"] = "<Down>",
+
     -- C-z for undo
     ["<C-z>"] = "<ESC>ui",
+
     -- Ctrl-s for saving
     ["<C-S>"] = "<Esc>:write<CR>",
+
     -- Move lines Up/Down using Alt+Arrows
     ["<m-Up>"] = ":m .-2<CR>==",
     ["<m-Down>"] = ":m .+1<CR>==",
+    
     -- Typing gcc is too much (comments toggle)
     ["<C-c>"] = "<cmd>CommentToggle<CR>",
   },
