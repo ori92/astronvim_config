@@ -4,7 +4,7 @@ return {
   enable_git_status = true,
   filesystem = {
     filtered_items = {
-      hide_dotfiles = true,
+      hide_dotfiles = false,
       hide_by_pattern = {},
       hide_by_name = {},
       never_show = {
@@ -13,6 +13,8 @@ return {
         "node_modules",
         ".git",
         ".cache",
+        ".vscode",
+        ".gitignore",
       },
     },
   },
