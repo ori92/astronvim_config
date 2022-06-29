@@ -1,19 +1,16 @@
-return function(h)
+return function(hl)
   local C = require "default_theme.colors"
-  h.TelescopeNormal = { fg = C.fg, bg = C.bg }
-  h.TelescopeTitle = { fg = C.fg }
-  h.TelescopeMatching = { fg = C.blue }
-  h.TelescopePromptTitle = { fg = C.bg, bg = C.red }
-  h.TelescopePromptNormal = { fg = C.fg, bg = C.bg }
-  h.TelescopePromptPrefix = { fg = C.red, bg = C.bg }
-  h.TelescopePromptCounter = { fg = C.red }
-  h.TelescopeResultsTitle = { fg = C.bg, bg = C.bg }
-  h.TelescopeResultsNormal = { fg = C.fg, bg = C.bg }
-  h.TelescopePreviewTitle = { fg = C.bg, bg = C.green }
-  h.TelescopePreviewNormal = { fg = C.fg, bg = C.bg }
-  h.TelescopeBorder = { fg = C.bg, bg = C.bg }
-  h.TelescopeResultsBorder = { fg = C.bg, bg = C.bg }
-  h.TelescopePromptBorder = { fg = C.bg, bg = C.bg }
-  h.TelescopePreviewBorder = { fg = C.bg, bg = C.bg }
-  return h
+  hl.TelescopeBorder = { fg = C.telescope_bg_alt, bg = C.telescope_bg }
+  hl.TelescopeNormal = { bg = C.telescope_bg }
+  hl.TelescopePreviewBorder = { fg = C.telescope_bg, bg = C.telescope_bg }
+  hl.TelescopePreviewNormal = { bg = C.telescope_bg }
+  hl.TelescopePreviewTitle = { fg = C.telescope_bg, bg = C.telescope_green }
+  hl.TelescopePromptBorder = { fg = C.telescope_bg_alt, bg = C.telescope_bg_alt }
+  hl.TelescopePromptNormal = { fg = C.telescope_fg, bg = C.telescope_bg_alt }
+  hl.TelescopePromptPrefix = { fg = C.telescope_red, bg = C.telescope_bg_alt }
+  hl.TelescopePromptTitle = { fg = C.telescope_bg, bg = C.telescope_red }
+  hl.TelescopeResultsBorder = { fg = C.telescope_bg, bg = C.telescope_bg }
+  hl.TelescopeResultsNormal = { bg = C.telescope_bg }
+  hl.TelescopeResultsTitle = { fg = C.telescope_bg, bg = C.telescope_bg }
+  return hl
 end
