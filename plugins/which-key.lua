@@ -4,7 +4,7 @@ return {
     registers = true,
     spelling = {
       enabled = true,
-      suggestions = 20,
+      suggestions = 25,
     },
     presets = {
       operators = false,

@@ -374,6 +374,10 @@ local ignore = {
   "<C-o>",
   "G",
   "gg",
+  "<Leader><Up>",
+  "<Leader><Down>",
+  "<Leader><Left>",
+  "<Leader><Right>",
 }
 for _, key in pairs(ignore) do
   mappings[key] = { "which_key_ignore" }

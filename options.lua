@@ -3,8 +3,8 @@ return {
     relativenumber = false,
     spell = false,
     spelllang = "en,programming",
-    timeoutlen = 100,
-    updatetime = 100,
+    timeoutlen = 200,
+    updatetime = 200,
     numberwidth = 1,
     spellfile = "/home/dat/.config/astronvim/lua/user/spell/en.utf-8.add",
     list = true,
@@ -30,6 +30,6 @@ return {
     loaded_shada_plugin = true,
     loaded_spellfile_plugin = true,
     loaded_netrw = true,
-    loaded_tutor_mode_plugin = true,
+    loaded_tutor_mode_plugin = false,
   },
 }

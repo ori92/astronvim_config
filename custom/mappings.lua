@@ -23,7 +23,6 @@ local unmappings = {
 
 local mappings = {
   n = {
-
     ["<C-k>"] = { "<cmd>m .-2<CR>", {
       desc = "move line up",
     } },
@@ -54,9 +53,6 @@ local mappings = {
     -- C-z for undo
     ["<C-z>"] = "<Cmd>undo<CR>",
 
-    -- Ctrl-s for saving
-    ["<C-S>"] = ":write<CR>",
-
     -- Move lines Up/Down using Alt+Arrows
     ["<m-Up>"] = ":m .-2<CR>==",
     ["<m-Down>"] = ":m .+1<CR>==",
@@ -76,14 +72,27 @@ local mappings = {
 
     -- Duplicate a line / selection and comment out the first
     ["<Leader>C"] = { "Ypk:CommentToggle<CR>j", { desc = "Duplicate comment" } },
+
     -- Insert current date
     ["<Leader>i"] = { '"=strftime("%b %d, %Y")<CR>p', { desc = "insert date " } },
 
-    ["<Leader><Up>"] = { "<cmd>lua require('tmux').move_top()<cr>", { desc = "which_key_ignore" } },
-    ["<Leader><Down>"] = { "<cmd>lua require('tmux').move_bottom()<cr>", { desc = "which_key_ignore" } },
-    ["<Leader><Left>"] = { "<cmd>lua require('tmux').move_left()<cr>", { desc = "which_key_ignore" } },
-    ["<Leader><Right>"] = { "<cmd>lua require('tmux').move_right()<cr>", { desc = "which_key_ignore" } },
+    -- Select panes (tmux integration)
+    ["<Leader><Up>"] = "<cmd>lua require('tmux').move_top()<cr>",
+    ["<Leader><Down>"] = "<cmd>lua require('tmux').move_bottom()<cr>",
+    ["<Leader><Left>"] = "<cmd>lua require('tmux').move_left()<cr>",
+    ["<Leader><Right>"] = "<cmd>lua require('tmux').move_right()<cr>",
+
+    -- Disable ex mode mapping
+    ["Q"] = "<Nop>",
+    ["q:"] = "<Nop>", -- not working
+
+    -- Cheatsheet
+    ["<Leader>?"] = "<Cmd>Cheatsheet<CR>",
+
+    -- <esc> to clear search highlight
+    ["<esc>"] = "<Cmd>nohlsearch<CR>",
   },
+
   v = {
     ["<C-j>"] = ":m '>+1<cr>gv=gv",
     ["<C-k>"] = ":m '<-2<cr>gv=gv",
@@ -91,9 +100,6 @@ local mappings = {
     -- Move lines Up/Down using Alt+Arrows
     ["<C-Up>"] = ":m '<-2<CR>gv=gv",
     ["<C-Down>"] = ":m '>+1<CR>gv=gv",
-
-    -- Ctrl-s for saving
-    ["<C-S>"] = "<Esc>:write<CR>",
 
     -- Typing gcc is too much (comments toggle)
     ["<C-c>"] = ":CommentToggle<CR>gv",
@@ -117,19 +123,16 @@ local mappings = {
     -- C-z for undo
     ["<C-z>"] = "<ESC>ui",
 
-    -- Ctrl-s for saving
-    ["<C-S>"] = "<Esc>:write<CR>",
-
     -- Move lines Up/Down using Alt+Arrows
     ["<m-Up>"] = ":m .-2<CR>==",
     ["<m-Down>"] = ":m .+1<CR>==",
-    
+
     -- Typing gcc is too much (comments toggle)
     ["<C-c>"] = "<cmd>CommentToggle<CR>",
   },
 }
 
--- Trying to make my mappings can use which-key styple
+-- Trying to make my mappings which-key style
 for mode, maps in pairs(mappings) do
   for lhs, rhs in pairs(maps) do
     if type(rhs) == "string" or type(rhs) == "function" then
