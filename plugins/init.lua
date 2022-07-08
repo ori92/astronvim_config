@@ -11,16 +11,6 @@ return {
       require("hop").setup()
     end,
   },
-  ["beauwilliams/focus.nvim"] = {
-    event = "BufRead",
-    config = function()
-      require("focus").setup {
-        excluded_filetypes = { "toggleterm", "TelescopePrompt" },
-        cursorline = false,
-        signcolumn = false,
-      }
-    end,
-  },
   ["ray-x/lsp_signature.nvim"] = {
     event = "InsertEnter",
     config = function()
@@ -48,12 +38,6 @@ return {
   ["nvim-telescope/telescope-packer.nvim"] = {
     module = "telescope._extensions.packer",
   },
-  ["nvim-telescope/telescope-project.nvim"] = {
-    module = "telescope._extensions.project",
-  },
-  ["cljoly/telescope-repo.nvim"] = {
-    module = "telescope._extensions.repo",
-  },
   ["aserowy/tmux.nvim"] = {
     module = "tmux",
   },
@@ -67,9 +51,6 @@ return {
       require("nvim-dap-virtual-text").setup()
     end,
   },
-  ["nvim-telescope/telescope-file-browser.nvim"] = {
-    module = "telescope._extensions.file_browser",
-  },
   ["ziontee113/syntax-tree-surfer"] = { module = "syntax-tree-surfer" },
   ["nvim-treesitter/nvim-treesitter-textobjects"] = { after = "nvim-treesitter" },
   ["andymass/vim-matchup"] = {
@@ -79,65 +60,16 @@ return {
     end,
   },
   ["hrsh7th/cmp-nvim-lua"] = { after = "cmp_luasnip" },
-  ["SmiteshP/nvim-gps"] = {
-    event = "BufRead",
-    config = require "user.plugins.gps",
-    disable = true,
-  },
-  ["b0o/SchemaStore.nvim"] = { ft = "json" },
   ["jvgrootveld/telescope-zoxide"] = {
     module = "telescope._extensions.zoxide",
   },
-  ["goolord/alpha-nvim"] = {
-    requires = { "kyazdani42/nvim-web-devicons" },
-    config = function()
-      require("alpha").setup(require("alpha.themes.startify").config)
-    end,
-  },
-  ["nvim-neorg/neorg"] = {
-    ft = "norg",
-    after = "nvim-treesitter",
-    config = function()
-      require("neorg").setup {
-        load = {
-          ["core.defaults"] = {},
-          ["core.norg.dirman"] = {
-            config = {
-              workspaces = {
-                work = "~/notes/work",
-                personal = "~/notes/personal",
-              },
-            },
-          },
-          ["core.integrations.telescope"] = {},
-        },
-      }
-      local neorg_callbacks = require "neorg.callbacks"
-
-      neorg_callbacks.on_event("core.keybinds.events.enable_keybinds", function(_, keybinds)
-        -- Map all the below keybinds only when the "norg" mode is active
-        keybinds.map_event_to_mode("norg", {
-          n = { -- Bind keys in normal mode
-            { "<C-s>", "core.integrations.telescope.find_linkable" },
-          },
-
-          i = { -- Bind in insert mode
-            { "<C-l>", "core.integrations.telescope.insert_link" },
-          },
-        }, {
-          silent = true,
-          noremap = true,
-        })
-      end)
-    end,
-    requires = "nvim-neorg/neorg-telescope",
-  },
-  ["LunarVim/darkplus.nvim"] = {},
+  ["goolord/alpha-nvim"] = { disable = true },
   ["catppuccin/nvim"] = {
     as = "catppuccin",
     config = function()
-      vim.g.catppuccin_flavour = "frappe"
+      vim.g.catppuccin_flavour = "mocha"
       require("catppuccin").setup {
+        term_colors = true,
         integrations = {
           treesitter = true,
           native_lsp = {
@@ -149,10 +81,10 @@ return {
               information = "italic",
             },
             underlines = {
-              errors = "underline",
-              hints = "underline",
-              warnings = "underline",
-              information = "underline",
+              errors = "undercurl",
+              hints = "undercurl",
+              warnings = "undercurl",
+              information = "undercurl",
             },
           },
           lsp_trouble = false,
@@ -171,7 +103,7 @@ return {
             show_root = true,
             transparent_panel = false,
           },
-          which_key = false,
+          which_key = true,
           indent_blankline = {
             enabled = true,
             colored_indent_levels = true,
