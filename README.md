@@ -3,6 +3,7 @@
 My AstroNvim configuration
 
 If you want to use AstroNvim, check out: [AstroNvim](https://github.com/kabinspace/AstroVim)
+This repo is a fork of https://github.com/datamonsterr/astronvim_config, i made some minor changes.
 
 # How to install my config
 
