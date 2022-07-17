@@ -1,5 +1,6 @@
 return {
   "clangd",
+  -- "ccls",
   "cssls",
   "html",
   "jsonls",

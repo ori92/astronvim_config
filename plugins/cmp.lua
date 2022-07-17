@@ -30,9 +30,6 @@ local cmp = require "cmp"
 local luasnip = require "luasnip"
 
 return {
-  experimental = {
-    ghost_text = true,
-  },
   view = {
     entries = { name = "custom", selection_order = "near_cursor" },
   },
@@ -45,6 +42,10 @@ return {
   formatting = {
     fields = { "abbr", "kind", "menu" },
     format = function(entry, vim_item)
+      local shorten_abbr = string.sub(vim_item.abbr, 1, 30)
+      if shorten_abbr ~= vim_item.abbr then
+        vim_item.abbr = shorten_abbr .. "..."
+      end
       -- Kind icons
       vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind)
       -- Source
@@ -66,6 +67,7 @@ return {
   },
   mapping = {
     ["<C-j>"] = cmp.config.disable,
+    ["<C-k>"] = cmp.config.disable,
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
@@ -80,6 +82,5 @@ return {
       "i",
       "s",
     }),
-    ["<C-k>"] = cmp.config.disable,
   },
 }

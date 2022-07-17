@@ -30,6 +30,28 @@ end
 
 return {
   n = {
+    ["<leader>lF"] = {
+      function()
+        vim.api.nvim_del_augroup_by_name "format_on_save"
+      end,
+      desc = "Disable Format on Save",
+    },
+    ["<leader><cr>"] = { '<esc>/<++><cr>"_c4l', desc = "Next Template" },
+    ["<leader>dr"] = {
+      function()
+        local word = vim.fn.expand "<cword>"
+        local rp = vim.fn.input "Replace with: "
+        vim.cmd("%s/" .. word .. "/" .. rp .. "/g")
+      end,
+    },
+    ["<A-g>"] = {
+      function()
+        local word = vim.fn.expand "<cword>"
+        vim.cmd(string.format("silent exec '!goldendict %s'", word))
+      end,
+      silent = true,
+      desc = "Goldendict",
+    },
     ["<leader>q"] = { ":Bdelete!<cr>", desc = "Quit Buffer" },
     ["<leader>w"] = { ":WinShift<cr>", desc = "WinShift" },
     ["<leader>hl"] = { ":HopLineStart<cr>", desc = "Hop Line Start" },
@@ -56,13 +78,19 @@ return {
       end,
       desc = "Cursorline",
     },
+    ["<leader>dl"] = {
+      function()
+        vim_opt_toggle "cursorcolumn"
+      end,
+      desc = "Cursor Column",
+    },
     ["<leader>dC"] = {
       function()
         vim_opt_toggle("conceallevel", 0, 2)
       end,
       desc = "Conceal",
     },
-    ["<C-x>"] = {
+    ["<C-t>"] = {
       function()
         require("syntax-tree-surfer").select_current_node()
       end,
@@ -96,37 +124,37 @@ return {
     ["<leader>fh"] = false,
     ["<leader>u"] = false,
     ["<leader>o"] = false,
-    ["<leader>xb"] = {
+    ["<F9>"] = {
       function()
         require("dap").toggle_breakpoint()
       end,
       desc = "Toggle Breakpoint",
     },
-    ["<leader>xB"] = {
+    ["<leader>xb"] = {
       function()
         require("dap").set_breakpoint(vim.fn.input "Breakpoints condition: ")
       end,
       desc = "Breakpoint with condition",
     },
-    ["<leader>xC"] = {
+    ["<leader>xc"] = {
       function()
         require("dap").clear_breakpoints()
       end,
       desc = "Clear Breakpoints",
     },
-    ["<leader>xc"] = {
+    ["<F10>"] = {
       function()
         require("dap").continue()
       end,
       desc = "Continue",
     },
-    ["<leader>xi"] = {
+    ["<F11>"] = {
       function()
         require("dap").step_into()
       end,
       desc = "Step Into",
     },
-    ["<leader>xo"] = {
+    ["<F12>"] = {
       function()
         require("dap").step_over()
       end,
@@ -146,19 +174,12 @@ return {
       end,
       desc = "Terminate",
     },
-    ["<leader>xr"] = {
-      function()
-        require("dap").repl.toggle()
-      end,
-      desc = "REPL",
-    },
     ["<leader>xu"] = {
       function()
         require("dapui").toggle()
       end,
       desc = "Toggle Debugger UI",
     },
-    ["<leader>xv"] = { ":DapVirtualTextToggle<cr>", desc = "Virtual Text" },
     ["<leader>fdc"] = {
       function()
         require("telescope").extensions.dap.commands {}
@@ -246,8 +267,50 @@ return {
 
     -- Typing gcc is too much (comments toggle)
     ["<C-c>"] = ":CommentToggle<CR>gv",
+    J = {
+      function()
+        require("syntax-tree-surfer").surf("next", "visual")
+      end,
+      desc = "Next",
+    },
+    K = {
+      function()
+        require("syntax-tree-surfer").surf("prev", "visual")
+      end,
+      desc = "Prev",
+    },
+    H = {
+      function()
+        require("syntax-tree-surfer").surf("parent", "visual")
+      end,
+      desc = "Parent",
+    },
+    L = {
+      function()
+        require("syntax-tree-surfer").surf("child", "visual")
+      end,
+      desc = "Child",
+    },
+    ["<C-j>"] = {
+      function()
+        require("syntax-tree-surfer").surf("next", "visual", true)
+      end,
+      desc = "Swap Next",
+    },
+    ["<C-k>"] = {
+      function()
+        require("syntax-tree-surfer").surf("prev", "visual", true)
+      end,
+      desc = "Swap Prev",
+    },
   },
   i = {
+    ["<C-[>"] = {
+      function()
+        vim.notify("Use Capslock Key", "warn", { title = "Change your habit" })
+      end,
+    },
+    ["<C-S>"] = { "<Esc>:w<cr>i", desc = "Save the file" },
     [","] = ",<c-g>u",
     ["."] = ".<c-g>u",
     ["!"] = "!<c-g>u",

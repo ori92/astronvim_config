@@ -1,8 +1,9 @@
 return {
+  ["max397574/better-escape.nvim"] = { disable = true },
   ["ur4ltz/surround.nvim"] = {
     event = "BufRead",
     config = function()
-      require("surround").setup { mappings_style = "surround" }
+      require("surround").setup { mappings_style = "surround", map_insert_mode = false }
     end,
   },
   ["phaazon/hop.nvim"] = {
