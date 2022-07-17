@@ -98,4 +98,10 @@ return {
       }
     end,
   },
+  ["mickael-menu/zk-nvim"] = {
+    -- module = { "zk", "zk.commands" },
+    config = function()
+      require "user.plugins.zk"
+    end,
+  },
 }
