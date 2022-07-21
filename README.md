@@ -10,10 +10,9 @@ This repo is a fork of https://github.com/datamonsterr/astronvim_config, i made 
 You can config `AstroNvim` in both `.config/nvim/lua/user` or `.config/astronvim/lua/user`.
 But I recommend doing the second method for easily reinstallation.
 
-Install my config, use:
+Installation:
 
 ```bash
   git clone https://github.com/datamonsterr/astrovim_config ~/.config/astronvim/lua/user
-  nvim --headless +PackerSync -c quitall
-  
+  nvim  --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'  
 ```
