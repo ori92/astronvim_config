@@ -67,20 +67,11 @@ return {
   ["goolord/alpha-nvim"] = { disable = true },
   ---- My Custom
   ["mg979/vim-visual-multi"] = {}, -- visual-multi cursor
-  ["machakann/vim-sandwich"] = {}, -- vim-sandwitch - surronding.
+  ["machakann/vim-sandwich"] = {}, -- vim-sandwich - surrounding.
   ["AndrewRadev/sideways.vim"] = {}, -- sideways - shift parameters.
   ["mhinz/vim-startify"] = {}, -- Startify.
   ["sudormrfbin/cheatsheet.nvim"] = {}, -- Cheatsheet
   ["RRethy/nvim-align"] = {},
-  ["s1n7ax/nvim-window-picker"] = { -- Window Picker
-    tag = "v1.*",
-    config = function()
-      require("window-picker").setup()
-    end,
-  },
-  ["terrortylor/nvim-comment"] = {
-    config = require("nvim_comment").setup(),
-  },
   ["lambdalisue/suda.vim"] = { -- Suda
     config = vim.api.nvim_set_var("suda_smart_edit", 1),
   },
@@ -96,12 +87,6 @@ return {
         },
         lastplace_open_folds = true,
       }
-    end,
-  },
-  ["mickael-menu/zk-nvim"] = {
-    -- module = { "zk", "zk.commands" },
-    config = function()
-      require "user.plugins.zk"
     end,
   },
 }
