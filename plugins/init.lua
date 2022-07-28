@@ -66,6 +66,7 @@ return {
   },
   ["goolord/alpha-nvim"] = { disable = true },
   ---- My Custom
+  ["LudoPinelli/comment-box.nvim"] = {},
   ["mg979/vim-visual-multi"] = {}, -- visual-multi cursor
   ["machakann/vim-sandwich"] = {}, -- vim-sandwich - surrounding.
   ["AndrewRadev/sideways.vim"] = {}, -- sideways - shift parameters.

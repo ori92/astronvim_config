@@ -258,6 +258,10 @@ return {
     ["<esc>"] = "<Cmd>nohlsearch<CR>",
   },
   v = {
+    -- Create a Box
+    ["<Leader>b"] = { desc = "Create A Box", "<Cmd>CBccbox<CR>" },
+
+    -- Move lines Up/Down using Alt+j/k
     ["<A-j>"] = { ":m '>+1<cr>gv=gv" },
     ["<A-k>"] = { ":m '<-2<cr>gv=gv" },
 
