@@ -72,7 +72,7 @@ return {
   ["AndrewRadev/sideways.vim"] = {}, -- sideways - shift parameters.
   ["mhinz/vim-startify"] = {}, -- Startify.
   ["sudormrfbin/cheatsheet.nvim"] = {}, -- Cheatsheet
-  ["RRethy/nvim-align"] = {},
+  ["RRethy/nvim-align"] = {}, -- Align
   ["lambdalisue/suda.vim"] = { -- Suda
     config = vim.api.nvim_set_var("suda_smart_edit", 1),
   },
